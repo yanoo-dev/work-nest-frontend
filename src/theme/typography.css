@@ -1,0 +1,78 @@
+@theme {
+  --fs-display-mo-lg: 44px;
+  --fs-display-mo-md: 32px;
+  --fs-display-mo-sm: 28px;
+  --fs-display-pc-lg: 60px;
+  --fs-display-pc-md: 44px;
+  --fs-display-pc-sm: 36px;
+
+  --fs-heading-mo-xl: 28px;
+  --fs-heading-mo-lg: 24px;
+  --fs-heading-mo-md: 22px;
+  --fs-heading-mo-sm: 19px;
+  --fs-heading-mo-xs: 17px;
+  --fs-heading-mo-xxs: 15px;
+  --fs-heading-pc-xl: 40px;
+  --fs-heading-pc-lg: 32px;
+  --fs-heading-pc-md: 24px;
+  --fs-heading-pc-sm: 19px;
+  --fs-heading-pc-xs: 17px;
+  --fs-heading-pc-xxs: 15px;
+
+  --fs-body-lg: 19px;
+  --fs-body-md: 17px;
+  --fs-body-sm: 15px;
+  --fs-body-xs: 13px;
+
+  --fs-label-lg: 19px;
+  --fs-label-md: 17px;
+  --fs-label-sm: 15px;
+  --fs-label-xs: 13px;
+
+  --fs-navigation-title-md: 24px;
+  --fs-navigation-title-sm: 19px;
+  --fs-navigation-depth-md: 17px;
+  --fs-navigation-depth-sm: 15px;
+
+  --tracking-0: 0px;
+  --tracking-1: 0.01em;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-gray95);
+  }
+}
+
+@utility text-display-* {
+  font-size: --value(--fs-display-pc-*, [length]);
+  line-height: 150%;
+  font-weight: 700;
+}
+@utility text-heading-* {
+  font-size: --value(--fs-heading-pc-*, [length]);
+  line-height: 150%;
+  font-weight: 700;
+}
+@utility text-body-normal-* {
+  font-size: --value(--fs-body-*, [length]);
+  line-height: 150%;
+  font-weight: 400;
+}
+@utility text-body-bold-* {
+  font-size: --value(--fs-body-*, [length]);
+  line-height: 150%;
+  font-weight: 700;
+}
+@utility text-label-* {
+  font-size: --value(--fs-label-*, [length]);
+  line-height: 150%;
+}
+@utility text-navigation-* {
+  font-size: --value(--fs-navigation-*, [length]);
+  line-height: 150%;
+}
+@utility letter-spacing-* {
+  letter-spacing: --value(--tracking-*, [length]);
+}

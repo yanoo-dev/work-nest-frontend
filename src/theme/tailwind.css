@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md1: 6px;
+  --radius-md3: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+}
