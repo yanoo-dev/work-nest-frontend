@@ -47,7 +47,14 @@
     "leaveBalance": {
       "year": 2026,
       "balance": 11,
-      "label": "잔여연차 11개"
+      "monthlyUsed": 1.5,
+      "label": "잔여 11일 · 이번 달 1.5일 사용"
+    },
+    "tenure": {
+      "joinedAt": "2024-03-15",
+      "joinedAtDisplay": "2024. 03. 15",
+      "days": 788,
+      "label": "입사 2024.03.15 · 근속 788일"
     }
   },
 
@@ -73,70 +80,71 @@
     "title": "결재 요약",
     "viewAllRoute": "/approvals",
     "summary": {
-      "pending":  { "count": 1, "label": "결재 대기", "value": "01" },
-      "approved": { "count": 1, "label": "완료",      "value": "01" },
-      "rejected": { "count": 1, "label": "반려",      "value": "01" }
+      "pending":  { "count": 4,  "label": "결재 대기", "value": "04" },
+      "approved": { "count": 12, "label": "완료",      "value": "12" },
+      "rejected": { "count": 2,  "label": "반려",      "value": "02" }
     },
+    "todayLabel": "오늘 신청된 결재 4건",
     "items": [
       {
         "id": "aabb1122-3344-4566-8899-aabbccdd0001",
-        "docNo": "WN-MTG-0001",
+        "docNo": "WN-MTG-0015",
         "type": "MEETING",
         "typeLabel": "회의",
-        "title": "Work-nest 프로젝트 디자인팀 2v 회의",
+        "title": "디자인 시스템 v2 컴포넌트 리뷰 회의",
         "direction": "inbox",
         "directionLabel": "받은 결재",
-        "counterpart": { "name": "이서연", "position": "대리" },
-        "counterpartLabel": "이서연 / 대리",
-        "requestedAt": "2026-05-11",
-        "requestedAtDisplay": "26.05.11",
+        "counterpart": { "name": "정유나", "position": "사원" },
+        "counterpartLabel": "정유나 / 사원",
+        "requestedAt": "2026-05-12",
+        "requestedAtDisplay": "26.05.12",
         "status": "PENDING",
         "statusLabel": "결재대기"
       },
       {
         "id": "aabb1122-3344-4566-8899-aabbccdd0002",
-        "docNo": "WN-MTG-0002",
-        "type": "MEETING",
-        "typeLabel": "회의",
-        "title": "Work-nest 프로젝트 전체 부서 업무 일정 공유",
+        "docNo": "WN-WRT-0009",
+        "type": "WORK_REPORT",
+        "typeLabel": "업무보고",
+        "title": "5월 2주차 개발팀 주간 업무 보고",
         "direction": "inbox",
         "directionLabel": "받은 결재",
-        "counterpart": { "name": "김민중", "position": "대리" },
-        "counterpartLabel": "김민중 / 대리",
-        "requestedAt": "2026-05-10",
-        "requestedAtDisplay": "26.05.10",
+        "counterpart": { "name": "남기현", "position": "사원" },
+        "counterpartLabel": "남기현 / 사원",
+        "requestedAt": "2026-05-12",
+        "requestedAtDisplay": "26.05.12",
         "status": "APPROVED",
         "statusLabel": "승인완료"
       },
       {
         "id": "aabb1122-3344-4566-8899-aabbccdd0003",
-        "docNo": "WN-INT-0001",
-        "type": "INTERVIEW_REQUEST",
-        "typeLabel": "면담",
-        "title": "부서이동 면담",
+        "docNo": "WN-VAC-0023",
+        "type": "VACATION",
+        "typeLabel": "휴가",
+        "title": "5월 21일 종일 연차 신청",
         "direction": "sent",
         "directionLabel": "보낸 결재",
         "counterpart": { "name": "박지후", "position": "차장" },
         "counterpartLabel": "박지후 / 차장",
-        "requestedAt": "2026-05-09",
-        "requestedAtDisplay": "26.05.09",
-        "status": "REJECTED",
-        "statusLabel": "반려"
+        "requestedAt": "2026-05-12",
+        "requestedAtDisplay": "26.05.12",
+        "status": "PENDING",
+        "statusLabel": "결재대기"
       },
       {
         "id": "aabb1122-3344-4566-8899-aabbccdd0004",
-        "docNo": "WN-VAC-0001",
-        "type": "VACATION",
-        "typeLabel": "휴가",
-        "title": "개인일정 - 연차 1일",
+        "docNo": "WN-PUR-0007",
+        "type": "PURCHASE_REQUEST",
+        "typeLabel": "구매요청",
+        "title": "맥북 프로 16인치 (개발팀 신규 장비)",
         "direction": "sent",
         "directionLabel": "보낸 결재",
         "counterpart": { "name": "박지후", "position": "차장" },
         "counterpartLabel": "박지후 / 차장",
-        "requestedAt": "2026-05-08",
-        "requestedAtDisplay": "26.05.08",
-        "status": "PENDING",
-        "statusLabel": "결재대기"
+        "requestedAt": "2026-05-12",
+        "requestedAtDisplay": "26.05.12",
+        "status": "REJECTED",
+        "statusLabel": "반려"
       }
     ]
   },
@@ -152,22 +160,22 @@
         "id": "bbcc2233-4455-4677-8800-bbccddee0001",
         "type": "MEETING",
         "typeLabel": "회의",
-        "title": "Work-nest 프로젝트 기획안 회의 참여",
-        "description": "기획안 검토 + 디자인 시안 공유 (디자인팀 협업)",
-        "endAt": "2026-05-17T18:00:00+09:00",
-        "endAtDisplay": "~ 2026. 05. 17",
-        "progress": 60,
+        "title": "B고객사 신규 프로젝트 킥오프 미팅",
+        "description": "요구사항 정의 + 개발 일정 협의",
+        "endAt": "2026-05-20T16:00:00+09:00",
+        "endAtDisplay": "~ 2026. 05. 20",
+        "progress": 80,
         "participants": [
           { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
-          { "name": "서유리", "profileImageUrl": "https://i.pravatar.cc/40?u=yuri.seo" },
-          { "name": "백지민", "profileImageUrl": "https://i.pravatar.cc/40?u=jimin.baek" }
+          { "name": "조현우", "profileImageUrl": "https://i.pravatar.cc/40?u=hyunwoo.jo" },
+          { "name": "정유나", "profileImageUrl": "https://i.pravatar.cc/40?u=yuna.jung" }
         ]
       },
       {
         "id": "bbcc2233-4455-4677-8800-bbccddee0002",
         "type": "WORK_REPORT",
         "typeLabel": "업무보고",
-        "title": "개발팀 주간 업무 보고",
+        "title": "개발팀 5월 2주차 주간 업무 보고",
         "description": "이번 주 진행 사항 + 다음 주 계획 공유",
         "endAt": "2026-05-13T17:00:00+09:00",
         "endAtDisplay": "~ 2026. 05. 13",
@@ -180,17 +188,15 @@
       },
       {
         "id": "bbcc2233-4455-4677-8800-bbccddee0003",
-        "type": "MEETING",
-        "typeLabel": "회의",
-        "title": "B고객사 신규 프로젝트 킥오프 미팅",
-        "description": "요구사항 정의 + 개발 일정 협의",
-        "endAt": "2026-05-20T16:00:00+09:00",
-        "endAtDisplay": "~ 2026. 05. 20",
-        "progress": 80,
+        "type": "VACATION",
+        "typeLabel": "휴가",
+        "title": "임도현 종일 연차",
+        "description": "5월 21일 (목) 종일 연차 — 결재 신청 진행 중",
+        "endAt": "2026-05-21T18:00:00+09:00",
+        "endAtDisplay": "2026. 05. 21",
+        "progress": 0,
         "participants": [
-          { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
-          { "name": "조현우", "profileImageUrl": "https://i.pravatar.cc/40?u=hyunwoo.jo" },
-          { "name": "정유나", "profileImageUrl": "https://i.pravatar.cc/40?u=yuna.jung" }
+          { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" }
         ]
       }
     ]

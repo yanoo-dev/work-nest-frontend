@@ -1,0 +1,282 @@
+{
+  "_meta": {
+    "description": "일정 화면 mock 데이터 (Figma 시안 147-3137 mine view + 514-17962 team view + 컬러 가이드 351-10118)",
+    "screen": "/schedules",
+    "user": "임도현 (개발팀 대리, EMP-0022, USER)",
+    "today": "2026-05-12",
+    "todayDisplay": "2026. 05. 12",
+    "currentMonth": "2026-05",
+    "policyNote": "scope=team(기본)/mine. mine = 작성자 OR 참여자. team = 본인 부서 전체 (mine 포함). team view 표시 events = mineEvents + teamEvents"
+  },
+
+  "header": {
+    "logo": "WORKNEST",
+    "roleBadge": { "label": "개인", "value": "USER" },
+    "hasNotification": true
+  },
+
+  "sidebar": {
+    "items": [
+      { "key": "dashboard",  "label": "대시보드",  "route": "/dashboard",  "active": false },
+      { "key": "schedules",  "label": "일정",      "route": "/schedules",  "active": true },
+      { "key": "approvals",  "label": "결재함",    "route": "/approvals",  "active": false },
+      { "key": "mypage",     "label": "마이페이지", "route": "/mypage",     "active": false },
+      { "key": "admin",      "label": "관리자",    "route": "/admin",      "active": false, "adminOnly": true }
+    ],
+    "logout": { "label": "로그아웃", "action": "logout" }
+  },
+
+  "typeColors": {
+    "_note": "ScheduleType 6종 (DB 정합) → 디자인 시안 351-10118 의 컬러 매핑",
+    "MEETING":           { "label": "회의",     "bg": "#E6F4F1", "text": "#0F5C4A", "dot": "#1FA47E" },
+    "VACATION":          { "label": "휴가",     "bg": "#FFF6E0", "text": "#9A6B1A", "dot": "#E0A23A" },
+    "WORK_REPORT":       { "label": "업무보고", "bg": "#E6F0FB", "text": "#1F4F92", "dot": "#3B7DD8" },
+    "INTERVIEW_REQUEST": { "label": "면담",     "bg": "#EEEAFB", "text": "#4D3D9C", "dot": "#7B6BD9" },
+    "PURCHASE_REQUEST":  { "label": "구매요청", "bg": "#FBE6E6", "text": "#A22D2D", "dot": "#D94D4D" },
+    "OTHER":             { "label": "기타",     "bg": "#EEF0F2", "text": "#56616E", "dot": "#8A95A1" }
+  },
+
+  "publishStatusLabels": {
+    "_note": "SchedulePublishStatus 4종 → 일정 카드 두 번째 tag 라벨. DRAFT 가 기본값 (결재 신청 전 상태). 정책: 결재 신청 → PENDING / 마지막 단계 승인 → APPROVED / 반려·취소 → DRAFT 자동 복귀",
+    "DRAFT":    "문서발행",
+    "PENDING":  "결재중",
+    "APPROVED": "승인됨",
+    "REJECTED": "반려"
+  },
+
+  "pageHeader": {
+    "title": "업무일정",
+    "monthLabel": "2026년 05월",
+    "monthValue": "2026-05",
+    "monthControls": {
+      "prev":  { "label": "‹", "action": "prevMonth" },
+      "today": { "label": "오늘", "action": "goToday" },
+      "next":  { "label": "›", "action": "nextMonth" }
+    },
+    "scopeToggle": {
+      "_note": "정책: scope=team 기본. mine=작성자 또는 참여자. all=ADMIN 전용. UI 시안에서는 mine/team 두 view",
+      "active": "team",
+      "items": [
+        { "key": "team", "label": "팀",       "active": true,  "viewKey": "team" },
+        { "key": "mine", "label": "내 일정", "active": false, "viewKey": "mine" }
+      ]
+    },
+    "actions": [
+      { "key": "filter",  "label": "필터",       "icon": "filter" },
+      { "key": "create",  "label": "+ 일정 추가", "icon": "plus", "primary": true }
+    ]
+  },
+
+  "calendar": {
+    "year": 2026,
+    "month": 5,
+    "todayDate": "2026-05-12",
+    "weekStart": "SUN",
+    "weekdayLabels": ["일", "월", "화", "수", "목", "금", "토"],
+    "_eventsNote": "mineEvents = 임도현이 작성자 OR 참여자. teamEvents = 개발팀 다른 멤버 (mine 제외). team view = mineEvents ∪ teamEvents. 다른 부서 events 는 어차피 표시 X 라 mock 에서 제거. PERIOD 일정 = isPeriod=true + 같은 (title+authorId+createdAt) row 묶음 ('B고객사 디자인 검토' 5/18~5/22 5일). 묶음 메타 (periodDay/Total 등) 는 DB 컬럼 X — 프론트가 group by 후 derived. progress 값은 묶음 N개 모두 동기화 (정책). isPeriod=true 면 progress bar 표시, false 면 미표시 (2026-05-13 합의)",
+
+    "mineEvents": [
+      { "id": "evt-0502-01", "type": "OTHER",            "title": "사내 워크샵 사전 공지 (전사)",            "date": "2026-05-02", "isAllDay": true,  "publishStatus": "APPROVED" },
+      { "id": "evt-0504-01", "type": "MEETING",          "title": "개발팀 5월 1주차 주간 킥오프",            "date": "2026-05-04", "isAllDay": false, "startAt": "2026-05-04T10:00:00+09:00", "endAt": "2026-05-04T11:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0504-02", "type": "OTHER",            "title": "사내 보안 교육 (전사 의무)",              "date": "2026-05-04", "isAllDay": true,  "publishStatus": "APPROVED" },
+      { "id": "evt-0505-01", "type": "VACATION",         "title": "어린이날 (공휴일)",                       "date": "2026-05-05", "isAllDay": true,  "publishStatus": "APPROVED" },
+      { "id": "evt-0506-02", "type": "WORK_REPORT",      "title": "개발 인프라 점검 보고",                   "date": "2026-05-06", "isAllDay": false, "startAt": "2026-05-06T11:00:00+09:00", "endAt": "2026-05-06T12:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0508-01", "type": "WORK_REPORT",      "title": "개발팀 5월 1주차 주간 업무 보고",         "date": "2026-05-08", "isAllDay": false, "startAt": "2026-05-08T17:00:00+09:00", "endAt": "2026-05-08T18:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0509-01", "type": "OTHER",            "title": "외부 기술 세미나 참석",                   "date": "2026-05-09", "isAllDay": false, "startAt": "2026-05-09T13:00:00+09:00", "endAt": "2026-05-09T17:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0511-01", "type": "MEETING",          "title": "개발팀 스프린트 13 킥오프",               "date": "2026-05-11", "isAllDay": false, "startAt": "2026-05-11T10:00:00+09:00", "endAt": "2026-05-11T11:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0512-01", "type": "MEETING",          "title": "B고객사 신규 프로젝트 킥오프 미팅",       "date": "2026-05-12", "isAllDay": false, "startAt": "2026-05-12T10:00:00+09:00", "endAt": "2026-05-12T11:30:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0512-02", "type": "MEETING",          "title": "디자인 시스템 v2 컴포넌트 리뷰 회의",     "date": "2026-05-12", "isAllDay": false, "startAt": "2026-05-12T14:00:00+09:00", "endAt": "2026-05-12T15:30:00+09:00", "publishStatus": "PENDING" },
+      { "id": "evt-0512-03", "type": "WORK_REPORT",      "title": "개발팀 5월 2주차 주간 업무 보고",         "date": "2026-05-12", "isAllDay": false, "startAt": "2026-05-12T17:00:00+09:00", "endAt": "2026-05-12T18:00:00+09:00", "publishStatus": "DRAFT" },
+      { "id": "evt-0512-04", "type": "PURCHASE_REQUEST", "title": "맥북 프로 16인치 (개발팀 신규 장비)",     "date": "2026-05-12", "isAllDay": true,  "publishStatus": "PENDING" },
+      { "id": "evt-0513-02", "type": "INTERVIEW_REQUEST","title": "박지후 차장 분기 1on1 (임도현)",          "date": "2026-05-13", "isAllDay": false, "startAt": "2026-05-13T14:00:00+09:00", "endAt": "2026-05-13T14:30:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0514-01", "type": "MEETING",          "title": "디자인-개발 연계 회의",                   "date": "2026-05-14", "isAllDay": false, "startAt": "2026-05-14T11:00:00+09:00", "endAt": "2026-05-14T12:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0515-02", "type": "INTERVIEW_REQUEST","title": "조현우 사원 멘토링 1on1 (임도현 멘토)",  "date": "2026-05-15", "isAllDay": false, "startAt": "2026-05-15T15:00:00+09:00", "endAt": "2026-05-15T15:30:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0517-01", "type": "OTHER",            "title": "프론트엔드 컨퍼런스 참석",                "date": "2026-05-17", "isAllDay": true,  "publishStatus": "APPROVED" },
+      { "id": "evt-0520-01", "type": "MEETING",          "title": "C고객사 분기 정기 미팅",                  "date": "2026-05-20", "isAllDay": false, "startAt": "2026-05-20T14:00:00+09:00", "endAt": "2026-05-20T15:30:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0521-01", "type": "VACATION",         "title": "임도현 종일 연차",                        "date": "2026-05-21", "isAllDay": true,  "publishStatus": "PENDING" },
+      { "id": "evt-0522-02", "type": "WORK_REPORT",      "title": "전사 5월 마감 발표 보고",                 "date": "2026-05-22", "isAllDay": false, "startAt": "2026-05-22T16:00:00+09:00", "endAt": "2026-05-22T17:30:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0525-01", "type": "MEETING",          "title": "6월 OKR 킥오프 회의",                     "date": "2026-05-25", "isAllDay": false, "startAt": "2026-05-25T10:00:00+09:00", "endAt": "2026-05-25T12:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0527-02", "type": "WORK_REPORT",      "title": "개발팀 5월 4주차 주간 업무 보고",         "date": "2026-05-27", "isAllDay": false, "startAt": "2026-05-27T17:00:00+09:00", "endAt": "2026-05-27T18:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0529-01", "type": "MEETING",          "title": "5월 마감 회의 (전사)",                    "date": "2026-05-29", "isAllDay": false, "startAt": "2026-05-29T16:00:00+09:00", "endAt": "2026-05-29T17:30:00+09:00", "publishStatus": "APPROVED" },
+
+      { "id": "evt-period-001", "type": "MEETING", "title": "B고객사 디자인 검토", "date": "2026-05-18", "isAllDay": true, "isPeriod": true, "authorId": "11d22e33-4f55-46aa-87bb-c0d1e2f30022", "createdAt": "2026-05-10T09:00:00+09:00", "publishStatus": "APPROVED", "progress": 60 },
+      { "id": "evt-period-002", "type": "MEETING", "title": "B고객사 디자인 검토", "date": "2026-05-19", "isAllDay": true, "isPeriod": true, "authorId": "11d22e33-4f55-46aa-87bb-c0d1e2f30022", "createdAt": "2026-05-10T09:00:00+09:00", "publishStatus": "APPROVED", "progress": 60 },
+      { "id": "evt-period-003", "type": "MEETING", "title": "B고객사 디자인 검토", "date": "2026-05-20", "isAllDay": true, "isPeriod": true, "authorId": "11d22e33-4f55-46aa-87bb-c0d1e2f30022", "createdAt": "2026-05-10T09:00:00+09:00", "publishStatus": "APPROVED", "progress": 60 },
+      { "id": "evt-period-004", "type": "MEETING", "title": "B고객사 디자인 검토", "date": "2026-05-21", "isAllDay": true, "isPeriod": true, "authorId": "11d22e33-4f55-46aa-87bb-c0d1e2f30022", "createdAt": "2026-05-10T09:00:00+09:00", "publishStatus": "APPROVED", "progress": 60 },
+      { "id": "evt-period-005", "type": "MEETING", "title": "B고객사 디자인 검토", "date": "2026-05-22", "isAllDay": true, "isPeriod": true, "authorId": "11d22e33-4f55-46aa-87bb-c0d1e2f30022", "createdAt": "2026-05-10T09:00:00+09:00", "publishStatus": "APPROVED", "progress": 60 }
+    ],
+
+    "teamEvents": [
+      { "id": "evt-0506-03", "type": "INTERVIEW_REQUEST", "title": "강다은 사원 1on1 면담",                  "date": "2026-05-06", "isAllDay": false, "startAt": "2026-05-06T16:00:00+09:00", "endAt": "2026-05-06T16:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0507-01", "type": "VACATION",          "title": "박지후 차장 종일 연차",                  "date": "2026-05-07", "isAllDay": true,  "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0514-02", "type": "INTERVIEW_REQUEST", "title": "조현우 사원 적응 면담 후속",             "date": "2026-05-14", "isAllDay": false, "startAt": "2026-05-14T14:00:00+09:00", "endAt": "2026-05-14T14:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0514-03", "type": "PURCHASE_REQUEST",  "title": "개발팀 추가 모니터 구매",                "date": "2026-05-14", "isAllDay": true,  "publishStatus": "PENDING",  "ownerName": "남기현 사원" },
+      { "id": "evt-0515-01", "type": "INTERVIEW_REQUEST", "title": "조현우 사원 적응 면담",                  "date": "2026-05-15", "isAllDay": false, "startAt": "2026-05-15T16:00:00+09:00", "endAt": "2026-05-15T16:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0520-02", "type": "INTERVIEW_REQUEST", "title": "신입 박서연 사원 적응 면담",             "date": "2026-05-20", "isAllDay": false, "startAt": "2026-05-20T11:00:00+09:00", "endAt": "2026-05-20T11:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0528-02", "type": "PURCHASE_REQUEST",  "title": "개발팀 도구 라이선스 갱신",              "date": "2026-05-28", "isAllDay": true,  "publishStatus": "PENDING",  "ownerName": "남기현 사원" }
+    ]
+  },
+
+  "dayPanel": {
+    "_note": "selectedDate 기본 = 오늘. mine view 와 team view 의 카드 리스트가 다를 수 있음. team view = mine + team",
+    "selectedDate": "2026-05-12",
+    "selectedDateLabel": "05월 12일",
+    "weekday": "화",
+    "isToday": true,
+    "tabs": [
+      { "key": "schedule", "label": "일정",  "active": true },
+      { "key": "todo",     "label": "할 일", "active": false }
+    ],
+
+    "mine": {
+      "_note": "mine view 의 오늘(05/12) 일정 카드. 4건 (모두 임도현 본인 작성/참여)",
+      "items": [
+        {
+          "id": "evt-0512-01",
+          "type": "MEETING", "typeLabel": "회의",
+          "title": "B고객사 신규 프로젝트 킥오프 미팅",
+          "description": "요구사항 정의 + 개발 일정 협의",
+          "isAllDay": false, "timeLabel": "10:00 ~ 11:30", "deadlineLabel": "today",
+          "startAt": "2026-05-12T10:00:00+09:00", "endAt": "2026-05-12T11:30:00+09:00",
+          "progress": 80, "publishStatus": "APPROVED",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "조현우", "profileImageUrl": "https://i.pravatar.cc/40?u=hyunwoo.jo" },
+            { "name": "정유나", "profileImageUrl": "https://i.pravatar.cc/40?u=yuna.jung" }
+          ]
+        },
+        {
+          "id": "evt-0512-02",
+          "type": "MEETING", "typeLabel": "회의",
+          "title": "디자인 시스템 v2 컴포넌트 리뷰 회의",
+          "description": "Atom/Molecule 단위 컴포넌트 컬러 토큰 확정",
+          "isAllDay": false, "timeLabel": "14:00 ~ 15:30", "deadlineLabel": "today",
+          "startAt": "2026-05-12T14:00:00+09:00", "endAt": "2026-05-12T15:30:00+09:00",
+          "progress": 30, "publishStatus": "PENDING",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "서유리", "profileImageUrl": "https://i.pravatar.cc/40?u=yuri.seo" },
+            { "name": "백지민", "profileImageUrl": "https://i.pravatar.cc/40?u=jimin.baek" }
+          ]
+        },
+        {
+          "id": "evt-0512-03",
+          "type": "WORK_REPORT", "typeLabel": "업무보고",
+          "title": "개발팀 5월 2주차 주간 업무 보고",
+          "description": "이번 주 진행 사항 + 다음 주 계획 공유",
+          "isAllDay": false, "timeLabel": "17:00 ~ 18:00", "deadlineLabel": "today",
+          "startAt": "2026-05-12T17:00:00+09:00", "endAt": "2026-05-12T18:00:00+09:00",
+          "progress": 40, "publishStatus": "DRAFT",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "박지후", "profileImageUrl": "https://i.pravatar.cc/40?u=jihoo.park" },
+            { "name": "남기현", "profileImageUrl": "https://i.pravatar.cc/40?u=kihyun.nam" }
+          ]
+        },
+        {
+          "id": "evt-0512-04",
+          "type": "PURCHASE_REQUEST", "typeLabel": "구매요청",
+          "title": "맥북 프로 16인치 (개발팀 신규 장비)",
+          "description": "박지후 차장 결재 대기",
+          "isAllDay": true, "timeLabel": "종일", "deadlineLabel": "~ 5/22",
+          "progress": 0, "publishStatus": "PENDING",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" }
+          ]
+        }
+      ]
+    },
+
+    "team": {
+      "_note": "team view 의 오늘(05/12) 일정 카드. mine 4건 + team-only 0건 (5/12에 team-only 일정 없음). 첫 4건 표시",
+      "items": [
+        {
+          "id": "evt-0512-01",
+          "type": "MEETING", "typeLabel": "회의",
+          "title": "B고객사 신규 프로젝트 킥오프 미팅",
+          "description": "요구사항 정의 + 개발 일정 협의",
+          "isAllDay": false, "timeLabel": "10:00 ~ 11:30", "deadlineLabel": "today",
+          "ownerName": "임도현 대리", "scope": "mine",
+          "progress": 80, "publishStatus": "APPROVED",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "조현우", "profileImageUrl": "https://i.pravatar.cc/40?u=hyunwoo.jo" },
+            { "name": "정유나", "profileImageUrl": "https://i.pravatar.cc/40?u=yuna.jung" }
+          ]
+        },
+        {
+          "id": "evt-0512-02",
+          "type": "MEETING", "typeLabel": "회의",
+          "title": "디자인 시스템 v2 컴포넌트 리뷰 회의",
+          "description": "Atom/Molecule 단위 컴포넌트 컬러 토큰 확정",
+          "isAllDay": false, "timeLabel": "14:00 ~ 15:30", "deadlineLabel": "today",
+          "ownerName": "임도현 대리", "scope": "mine",
+          "progress": 30, "publishStatus": "PENDING",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "서유리", "profileImageUrl": "https://i.pravatar.cc/40?u=yuri.seo" },
+            { "name": "백지민", "profileImageUrl": "https://i.pravatar.cc/40?u=jimin.baek" }
+          ]
+        },
+        {
+          "id": "evt-0512-03",
+          "type": "WORK_REPORT", "typeLabel": "업무보고",
+          "title": "개발팀 5월 2주차 주간 업무 보고",
+          "description": "이번 주 진행 사항 + 다음 주 계획 공유",
+          "isAllDay": false, "timeLabel": "17:00 ~ 18:00", "deadlineLabel": "today",
+          "ownerName": "임도현 대리", "scope": "mine",
+          "progress": 40, "publishStatus": "DRAFT",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" },
+            { "name": "박지후", "profileImageUrl": "https://i.pravatar.cc/40?u=jihoo.park" },
+            { "name": "남기현", "profileImageUrl": "https://i.pravatar.cc/40?u=kihyun.nam" }
+          ]
+        },
+        {
+          "id": "evt-0512-04",
+          "type": "PURCHASE_REQUEST", "typeLabel": "구매요청",
+          "title": "맥북 프로 16인치 (개발팀 신규 장비)",
+          "description": "박지후 차장 결재 대기",
+          "isAllDay": true, "timeLabel": "종일", "deadlineLabel": "~ 5/22",
+          "ownerName": "임도현 대리", "scope": "mine",
+          "progress": 0, "publishStatus": "PENDING",
+          "participants": [
+            { "name": "임도현", "profileImageUrl": "https://i.pravatar.cc/40?u=dohyun.lim" }
+          ]
+        }
+      ]
+    }
+  },
+
+  "footer": {
+    "logo": "WORKNEST",
+    "slogan": "기업의 협업 관리를 편리하게",
+    "company": {
+      "name": "(주)워크네스트",
+      "ceo": "박지민",
+      "ceoLabel": "대표이사: 박지민",
+      "address": "경기 성남시 분당구 판교역 100, 굿스퀘어 N동 3층",
+      "addressLabel": "주소: 경기 성남시 분당구 판교역 100, 굿스퀘어 N동 3층",
+      "businessNumber": "000-00-00000",
+      "businessNumberLabel": "사업자등록번호: 000-00-00000",
+      "businessNumberLinkLabel": "(사업자정보확인)",
+      "ecommerceNumber": "20202-성남분당",
+      "ecommerceNumberLabel": "통신판매번호 20202-성남분당",
+      "customerCenter": "0000-0000",
+      "customerCenterLabel": "고객센터: 0000-0000",
+      "copyright": "© dk techin Corp. All rights reserved."
+    },
+    "navLinks": [
+      { "label": "로그인",     "route": "/login" },
+      { "label": "대시보드",   "route": "/dashboard" },
+      { "label": "일정",       "route": "/schedules" },
+      { "label": "결재함",     "route": "/approvals" },
+      { "label": "마이페이지", "route": "/mypage" },
+      { "label": "관리자",     "route": "/admin" }
+    ],
+    "actions": [
+      { "type": "email", "label": "Email", "value": "contact@worknest.demo" },
+      { "type": "about", "label": "회사소개", "route": "/about" }
+    ]
+  }
+}
