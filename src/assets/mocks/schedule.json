@@ -27,14 +27,14 @@
   },
 
   "typeColors": {
-    "_note": "ScheduleType 7종 (DB 정합, 2026-05-14 v2.1 PROJECT 추가) → 디자인 시안 351-10118 의 컬러 매핑. PROJECT = PERIOD 묶음 전용 type (가로 bar 단일 색, 다른 chip 들과 구분되는 청록 톤)",
-    "MEETING":           { "label": "회의",     "bg": "#E6F4F1", "text": "#0F5C4A", "dot": "#1FA47E" },
-    "VACATION":          { "label": "휴가",     "bg": "#FFF6E0", "text": "#9A6B1A", "dot": "#E0A23A" },
-    "WORK_REPORT":       { "label": "업무보고", "bg": "#E6F0FB", "text": "#1F4F92", "dot": "#3B7DD8" },
-    "INTERVIEW_REQUEST": { "label": "면담",     "bg": "#EEEAFB", "text": "#4D3D9C", "dot": "#7B6BD9" },
-    "PURCHASE_REQUEST":  { "label": "구매요청", "bg": "#FBE6E6", "text": "#A22D2D", "dot": "#D94D4D" },
-    "PROJECT":           { "label": "프로젝트", "bg": "#E0F2F1", "text": "#00695C", "dot": "#00897B" },
-    "OTHER":             { "label": "기타",     "bg": "#EEF0F2", "text": "#56616E", "dot": "#8A95A1" }
+    "_note": "ScheduleType 7종 (DB 정합, 2026-05-14 v2.3 시안 색 일치 정정) → 디자인 시안 351-10118 (schedule-chip variant set) 의 컬러 매핑. text 색은 시안이 7 type 모두 #56565B 통일 (디자이너 결정). dot 필드는 dayPanel 카드 indicator 등 다른 화면 용 (시안 chip 자체엔 dot 없음, 보류).",
+    "MEETING":           { "label": "회의",     "bg": "#FAFFDF", "text": "#56565B", "dot": "#1FA47E" },
+    "VACATION":          { "label": "휴가",     "bg": "#FFF8EA", "text": "#56565B", "dot": "#E0A23A" },
+    "WORK_REPORT":       { "label": "업무보고", "bg": "#EAF4FF", "text": "#56565B", "dot": "#3B7DD8" },
+    "INTERVIEW_REQUEST": { "label": "면담",     "bg": "#F3EEFF", "text": "#56565B", "dot": "#7B6BD9" },
+    "PURCHASE_REQUEST":  { "label": "구매요청", "bg": "#FFEEEE", "text": "#56565B", "dot": "#D94D4D" },
+    "PROJECT":           { "label": "프로젝트", "bg": "#EAF5F1", "text": "#56565B", "dot": "#00897B" },
+    "OTHER":             { "label": "기타",     "bg": "#EDEEF0", "text": "#56565B", "dot": "#8A95A1" }
   },
 
   "publishStatusLabels": {
@@ -74,9 +74,10 @@
     "todayDate": "2026-05-12",
     "weekStart": "SUN",
     "weekdayLabels": ["일", "월", "화", "수", "목", "금", "토"],
-    "_eventsNote": "mineEvents = 임도현이 작성자 OR 참여자. teamEvents = 개발팀 다른 멤버 (mine 제외). team view = mineEvents ∪ teamEvents. 다른 부서 events 는 어차피 표시 X 라 mock 에서 제거. PERIOD 일정 = type=PROJECT + isPeriod=true + 같은 (title+authorId+createdAt) row 묶음 ('B고객사 디자인 검토' 5/18~5/22 5일). 묶음 메타 (periodDay/Total 등) 는 DB 컬럼 X — 프론트가 group by 후 derived. isPeriod=true 면 progress bar 표시, false 면 미표시. ★ PERIOD v2/v2.1 정책 (2026-05-14): (1) **type=PROJECT 전용** (다른 type 은 단발만), (2) 종일 강제 (시간 필드 X), (3) 결재 = 묶음 1번 (approvals.schedule_id = 묶음 첫 row), (4) 결재 시 endDate 초과 row 자동 DELETE (묶음 축소), (5) publishStatus 묶음 동기화 (5 row 모두 같은 값), (6) 진행률 = 프론트 derived = (오늘-startDate+1)/(endDate-startDate+1)×100 — DB progress 컬럼 deprecate, mock 에서 제거, (7) 내용 수정 = row 별 (각 일자별 일지 다름).",
+    "_eventsNote": "mineEvents = 임도현이 작성자 OR 참여자. teamEvents = 개발팀 다른 멤버 (mine 제외). team view = mineEvents ∪ teamEvents. 다른 부서 events 는 어차피 표시 X 라 mock 에서 제거. PERIOD 일정 = type=PROJECT + isPeriod=true + 같은 (title+authorId+createdAt) row 묶음 ('B고객사 디자인 검토' 5/18~5/22 5일). 묶음 메타 (periodDay/Total 등) 는 DB 컬럼 X — 프론트가 group by 후 derived. ★ PERIOD v2.3 정책 (2026-05-14, v2.2 일부 회수): (1) **type=PROJECT 전용** (다른 type 은 단발만), (2) 종일 강제 (시간 필드 X), (3) 결재 = 묶음 1번, 결재 시 endDate 초과 row 자동 DELETE, publishStatus 묶음 동기화, (4) 진행률 = 프론트 derived (DB progress 컬럼 deprecate), (5) 내용 수정 = row 별. **★ 회수 (v2.2 → v2.3)**: 「캘린더 가로 bar 단일 색」 정책 회수. **chip 5개 per cell 유지** (디자이너 시안의 원래 결정 — 프론트 구현 부담 작음). 묶음 인지는 chip 텍스트의 「Day N/M」 derived 표기로.",
 
     "mineEvents": [
+      { "id": "evt-0501-02", "type": "VACATION",         "title": "임도현 종일 연차",                        "date": "2026-05-01", "isAllDay": true,  "publishStatus": "APPROVED" },
       { "id": "evt-0502-01", "type": "OTHER",            "title": "사내 워크샵 사전 공지 (전사)",            "date": "2026-05-02", "isAllDay": true,  "publishStatus": "APPROVED" },
       { "id": "evt-0504-01", "type": "MEETING",          "title": "개발팀 5월 1주차 주간 킥오프",            "date": "2026-05-04", "isAllDay": false, "startAt": "2026-05-04T10:00:00+09:00", "endAt": "2026-05-04T11:00:00+09:00", "publishStatus": "APPROVED" },
       { "id": "evt-0504-02", "type": "OTHER",            "title": "사내 보안 교육 (전사 의무)",              "date": "2026-05-04", "isAllDay": true,  "publishStatus": "APPROVED" },
@@ -84,6 +85,7 @@
       { "id": "evt-0506-02", "type": "WORK_REPORT",      "title": "개발 인프라 점검 보고",                   "date": "2026-05-06", "isAllDay": false, "startAt": "2026-05-06T11:00:00+09:00", "endAt": "2026-05-06T12:00:00+09:00", "publishStatus": "APPROVED" },
       { "id": "evt-0507-02", "type": "PROJECT",          "title": "Q1 회고 워크샵 프로젝트 (당일)",          "date": "2026-05-07", "isAllDay": false, "startAt": "2026-05-07T13:00:00+09:00", "endAt": "2026-05-07T18:00:00+09:00", "publishStatus": "REJECTED" },
       { "id": "evt-0508-01", "type": "WORK_REPORT",      "title": "개발팀 5월 1주차 주간 업무 보고",         "date": "2026-05-08", "isAllDay": false, "startAt": "2026-05-08T17:00:00+09:00", "endAt": "2026-05-08T18:00:00+09:00", "publishStatus": "APPROVED" },
+      { "id": "evt-0508-02", "type": "VACATION",         "title": "임도현 오후 반차",                        "date": "2026-05-08", "isAllDay": false, "startAt": "2026-05-08T14:00:00+09:00", "endAt": "2026-05-08T18:00:00+09:00", "publishStatus": "APPROVED" },
       { "id": "evt-0509-01", "type": "OTHER",            "title": "외부 기술 세미나 참석",                   "date": "2026-05-09", "isAllDay": false, "startAt": "2026-05-09T13:00:00+09:00", "endAt": "2026-05-09T17:00:00+09:00", "publishStatus": "APPROVED" },
       { "id": "evt-0511-01", "type": "MEETING",          "title": "개발팀 스프린트 13 킥오프",               "date": "2026-05-11", "isAllDay": false, "startAt": "2026-05-11T10:00:00+09:00", "endAt": "2026-05-11T11:00:00+09:00", "publishStatus": "APPROVED" },
       { "id": "evt-0512-01", "type": "MEETING",          "title": "B고객사 신규 프로젝트 킥오프 미팅",       "date": "2026-05-12", "isAllDay": false, "startAt": "2026-05-12T10:00:00+09:00", "endAt": "2026-05-12T11:30:00+09:00", "publishStatus": "APPROVED" },
@@ -112,6 +114,10 @@
     "teamEvents": [
       { "id": "evt-0506-03", "type": "INTERVIEW_REQUEST", "title": "강다은 사원 1on1 면담",                  "date": "2026-05-06", "isAllDay": false, "startAt": "2026-05-06T16:00:00+09:00", "endAt": "2026-05-06T16:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
       { "id": "evt-0507-01", "type": "VACATION",          "title": "박지후 차장 종일 연차",                  "date": "2026-05-07", "isAllDay": true,  "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
+      { "id": "evt-0508-03", "type": "VACATION",          "title": "남기현 사원 오후 반차",                  "date": "2026-05-08", "isAllDay": false, "startAt": "2026-05-08T14:00:00+09:00", "endAt": "2026-05-08T18:00:00+09:00", "publishStatus": "APPROVED", "ownerName": "남기현 사원" },
+      { "id": "evt-0515-04", "type": "VACATION",          "title": "강다은 사원 종일 연차",                  "date": "2026-05-15", "isAllDay": true,  "publishStatus": "APPROVED", "ownerName": "강다은 사원" },
+      { "id": "evt-0522-03", "type": "VACATION",          "title": "박서연 사원 오전 반차",                  "date": "2026-05-22", "isAllDay": false, "startAt": "2026-05-22T09:00:00+09:00", "endAt": "2026-05-22T13:00:00+09:00", "publishStatus": "APPROVED", "ownerName": "박서연 사원" },
+      { "id": "evt-0529-02", "type": "VACATION",          "title": "박지후 차장 종일 연차",                  "date": "2026-05-29", "isAllDay": true,  "publishStatus": "PENDING",  "ownerName": "박지후 차장" },
       { "id": "evt-0513-03", "type": "MEETING",           "title": "개발팀 월간 회의",                       "date": "2026-05-13", "isAllDay": false, "startAt": "2026-05-13T10:00:00+09:00", "endAt": "2026-05-13T11:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
       { "id": "evt-0514-02", "type": "INTERVIEW_REQUEST", "title": "조현우 사원 적응 면담 후속",             "date": "2026-05-14", "isAllDay": false, "startAt": "2026-05-14T14:00:00+09:00", "endAt": "2026-05-14T14:30:00+09:00", "publishStatus": "APPROVED", "ownerName": "박지후 차장" },
       { "id": "evt-0514-03", "type": "PURCHASE_REQUEST",  "title": "개발팀 추가 모니터 구매",                "date": "2026-05-14", "isAllDay": true,  "publishStatus": "PENDING",  "ownerName": "남기현 사원" },
