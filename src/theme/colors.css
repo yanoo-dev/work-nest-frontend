@@ -1,0 +1,80 @@
+:root {
+  /* ── PRIMARY · Teal ── */
+  --wn-primary-default:        #31C795;
+  --wn-primary-hover:          #399879;
+  --wn-primary-pressed:        #1F7358;
+  --wn-primary-subtle:         #CCFBF1;
+  --wn-primary-bg-subtle:      #F9FBFA;
+  --wn-primary-bg-default:     #EAF5F1;
+  --wn-primary-border-subtle:  #C4DED5;
+  --wn-primary-border-default: #97B1A8;
+  --wn-primary-icon-subtle:    #7A8D87;
+  --wn-primary-icon-default:   #606E69;
+  --wn-primary-icon-accent:    #31C795;
+  --wn-primary-text:           #FFFFFF;
+
+  /* ── SECONDARY · Amber ── */
+  --wn-secondary-default:       #F59E0B;
+  --wn-secondary-hover:         #D97706;
+  --wn-secondary-pressed:       #B45309;
+  --wn-secondary-subtle:        #FEF3C7;
+  --wn-secondary-bg-default:    #FEF7E6;
+  --wn-secondary-border-subtle: #FCD34D;
+  --wn-secondary-text:          #78350F;
+
+  /* ── NEGATIVE · Red ── */
+  --wn-negative-default:       #DC2626;
+  --wn-negative-hover:         #B91C1C;
+  --wn-negative-pressed:       #991B1B;
+  --wn-negative-subtle:        #FEE2E2;
+  --wn-negative-bg-default:    #FEF2F2;
+  --wn-negative-border-subtle: #FECACA;
+  --wn-negative-text:          #7F1D1D;
+
+  /* ── WARNING · Amber (별도 semantic) ── */
+  --wn-warning-default:    #F59E0B;
+  --wn-warning-subtle:     #FEF3C7;
+  --wn-warning-bg-default: #FEF7E6;
+  --wn-warning-text:       #78350F;
+
+  /* ── INFO · Cyan ── */
+  --wn-info-default:       #0891B2;
+  --wn-info-hover:         #0E7490;
+  --wn-info-subtle:        #CFFAFE;
+  --wn-info-bg-default:    #ECFEFF;
+  --wn-info-border-subtle: #A5F3FC;
+  --wn-info-text:          #164E63;
+
+  /* ── NEUTRAL · Gray ── */
+  --wn-neutral-default: #71717A;
+  --wn-neutral-hover:   #52525B;
+  --wn-neutral-subtle:  #F4F4F5;
+  --wn-neutral-strong:  #27272A;
+
+  /* ── TEXT ── */
+  --wn-text-default:    #18181B;
+  --wn-text-strong:     #000000;
+  --wn-text-muted:      #5C5C5E;
+  --wn-text-subtle:     #89898B;
+  --wn-text-disabled:   #C0C0C2;
+  --wn-text-on-primary: #FFFFFF;
+  --wn-text-on-dark:    #F1F2F5;
+
+  /* ── BG / SURFACE ── */
+  --wn-bg-default:  #FFFFFF;
+  --wn-bg-subtle:   #F9FAFC;
+  --wn-bg-muted:    #F4F4F4;   /* input */
+  --wn-bg-disabled: #EFEFEF;
+  --wn-bg-dark:     #18181B;
+  --wn-bg-overlay:  rgba(24, 24, 27, 0.45);
+  --wn-surface-default: #FFFFFF;
+  --wn-surface-subtle:  #F9FAFC;
+  --wn-surface-raised:  #FFFFFF;
+
+  /* ── BORDER ── */
+  --wn-border-default: #E3E3E4;
+  --wn-border-subtle:  #EDEDEE;
+  --wn-border-strong:  #CDCDCD;
+  --wn-border-divider: #D9D9D9;
+  --wn-border-focus:   #31C795;
+}

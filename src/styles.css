@@ -1,0 +1,20 @@
+@import './theme/fonts.css';
+@import './theme/tailwind.css';
+
+html {
+  background: var(--wn-bg-subtle);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input[type='number'] {
+  appearance: textfield;
+}

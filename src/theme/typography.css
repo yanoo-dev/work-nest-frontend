@@ -1,0 +1,33 @@
+:root {
+  --wn-font-sans:
+    'Wanted Sans Variable', 'Wanted Sans', 'Noto Sans KR',
+    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Pretendard', system-ui, sans-serif;
+  --wn-letter-spacing: 0;
+
+  --wn-heading-lg: 700 36px/1.1 var(--wn-font-sans);
+  --wn-heading-md: 700 32px/1.15 var(--wn-font-sans);
+  --wn-heading-sm: 700 28px/1.15 var(--wn-font-sans);
+  --wn-title-lg: 700 24px/1.4 var(--wn-font-sans);
+  --wn-title-md: 600 22px/1.4 var(--wn-font-sans);
+  --wn-title-sm: 600 20px/1.4 var(--wn-font-sans);
+  --wn-label-lg: 500 16px/1.4 var(--wn-font-sans);
+  --wn-label-md: 500 14px/1.4 var(--wn-font-sans);
+  --wn-label-sm: 500 13px/1.4 var(--wn-font-sans);
+  --wn-body-lg: 400 16px/1.5 var(--wn-font-sans);
+  --wn-body-md: 400 14px/1.5 var(--wn-font-sans);
+  --wn-body-sm: 400 12px/1.5 var(--wn-font-sans);
+  --wn-action-lg: 600 18px/1 var(--wn-font-sans);
+  --wn-action-md: 600 16px/1 var(--wn-font-sans);
+  --wn-action-sm: 600 14px/1 var(--wn-font-sans);
+  --wn-caption: 400 13px/1.4 var(--wn-font-sans);
+}
+
+body {
+  font: var(--wn-body-lg);
+  letter-spacing: var(--wn-letter-spacing);
+  color: var(--wn-text-default);
+  background: var(--wn-bg-subtle);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
