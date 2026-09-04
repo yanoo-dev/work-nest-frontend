@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# 환경변수 — 실제 값은 커밋하지 않고, 템플릿(.env.example)만 올린다
+.env*
+!.env.example
