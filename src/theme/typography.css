@@ -1,8 +1,8 @@
 :root {
   --wn-font-sans:
-    'Wanted Sans Variable', 'Wanted Sans', 'Noto Sans KR',
-    -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
-    'Pretendard', system-ui, sans-serif;
+    'Wanted Sans Variable', 'Wanted Sans', 'Noto Sans KR', -apple-system,
+    BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', system-ui,
+    sans-serif;
   --wn-letter-spacing: 0;
 
   --wn-heading-lg: 700 36px/1.1 var(--wn-font-sans);

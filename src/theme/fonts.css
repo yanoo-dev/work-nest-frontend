@@ -1,9 +1,2 @@
 /* Wanted Sans — npm 패키지가 @font-face + 가변 woff2 포함, Vite 가 번들 */
 @import 'wanted-sans/fonts/webfonts/variable/complete/WantedSansVariable.css';
-
-
-:root {
-  --font-family:
-    'Wanted Sans Variable', 'Wanted Sans', -apple-system, BlinkMacSystemFont,
-    system-ui, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-}
