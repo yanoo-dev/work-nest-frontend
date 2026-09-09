@@ -1,16 +1,16 @@
 :root {
-  /* ── PRIMARY · Teal ── */
-  --wn-primary-default: #31c795;
-  --wn-primary-hover: #399879;
-  --wn-primary-pressed: #1f7358;
-  --wn-primary-subtle: #ccfbf1;
+  /* ── PRIMARY · Deep Green ── */
+  --wn-primary-default: #12805e;
+  --wn-primary-hover: #0f6b50;
+  --wn-primary-pressed: #0c553f;
+  --wn-primary-subtle: #e4f7ee;
   --wn-primary-bg-subtle: #f9fbfa;
-  --wn-primary-bg-default: #eaf5f1;
-  --wn-primary-border-subtle: #c4ded5;
-  --wn-primary-border-default: #97b1a8;
-  --wn-primary-icon-subtle: #7a8d87;
-  --wn-primary-icon-default: #606e69;
-  --wn-primary-icon-accent: #31c795;
+  --wn-primary-bg-default: #bfedd8;
+  --wn-primary-border-subtle: #8edcbb;
+  --wn-primary-border-default: #57c79b;
+  --wn-primary-icon-subtle: #2a9e76;
+  --wn-primary-icon-default: #15764f;
+  --wn-primary-icon-accent: #12805e;
   --wn-primary-text: #ffffff;
 
   /* ── SECONDARY · Amber ── */
@@ -23,7 +23,7 @@
   --wn-secondary-text: #78350f;
 
   /* ── NEGATIVE · Red ── */
-  --wn-negative-default: #dc2626;
+  --wn-negative-default: #df3a3a;
   --wn-negative-hover: #b91c1c;
   --wn-negative-pressed: #991b1b;
   --wn-negative-subtle: #fee2e2;
@@ -76,5 +76,5 @@
   --wn-border-subtle: #ededee;
   --wn-border-strong: #cdcdcd;
   --wn-border-divider: #d9d9d9;
-  --wn-border-focus: #31c795;
+  --wn-border-focus: #12805e;
 }
